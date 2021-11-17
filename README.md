@@ -1,2 +1,2 @@
 # Java
-A repository for miscellaneous Java work.
+A repository for Java work.
