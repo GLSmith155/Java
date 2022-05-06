@@ -1,4 +1,4 @@
-// Constant time complexity solution of the two sum problem.
+// Constant time complexity solution for the two sum problem.
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
