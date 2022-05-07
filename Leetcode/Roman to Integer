@@ -1,0 +1,43 @@
+
+// Simple solution with hashmap
+class Solution {
+    public int romanToInt(String s) {
+        
+        
+        Map<String, Integer> RomanValue = new HashMap<>();
+        RomanValue.put("I", 1);
+        RomanValue.put("V", 5);
+        RomanValue.put("X", 10);
+        RomanValue.put("L", 50);
+        RomanValue.put("C", 100);
+        RomanValue.put("D", 500);
+        RomanValue.put("M", 1000);
+        
+        int total = 0;
+        int currentValue = 0;
+        //string tmp;
+          
+        for(int i=0; i < s.length(); i++) {
+           // System.out.println(RomanValue.get("I"));
+            currentValue = RomanValue.get(String.valueOf(s.charAt(i)));
+            System.out.println(s.charAt(i));
+            try {
+
+                if (currentValue < RomanValue.get(String.valueOf(s.charAt(i + 1)))) {
+                    total += RomanValue.get(String.valueOf(s.charAt(i + 1))) - currentValue;
+                    i++;
+                }
+        
+                else {
+                    total += currentValue;
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Null pointer.");
+                total += currentValue;
+            }
+
+        }
+       return total;
+    }
+}
