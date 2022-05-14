@@ -1,2 +1,2 @@
 # Java
-A repository for Java work.
+Projects I've completed using Java.
