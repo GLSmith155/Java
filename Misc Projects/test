@@ -1,0 +1,48 @@
+a)
+
+1)Local Host:
+example01
+   192.168.0.101
+
+2)
+
+www.tamu.edu: www.tamu.edu 165.91.22.70 www.mit.edu: www.mit.edu 23.35.92.23
+
+b)
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class MyInetAddressExample {
+
+   public static void main(String[] args) {
+       // TODO Auto-generated method stub
+       Scanner sc=new Scanner(System.in);
+       System.out.println("enter a hostname");
+       String hostname=sc.next();
+       try {
+           InetAddress address=InetAddress.getByName(hostname);
+           String hostaddress=address.getHostAddress();
+           String [] hostaddr=hostaddress.split("\\.");
+           String binaryformat="";
+           String binaryquadformat="";
+           for(int i=0;i<hostaddr.length;i++){
+               binaryformat+=Integer.toBinaryString(Integer.valueOf(hostaddr[i]));
+               binaryquadformat+=Integer.toBinaryString(Integer.valueOf(hostaddr[i]))+".";
+
+           }
+           System.out.printf("%-25s:%s\n","binary format",binaryformat);
+           System.out.printf("%-25s:%s\n","binary dotted-quad format",binaryquadformat.substring(0, binaryquadformat.length()-1));
+           System.out.printf("%-25s:%s\n","decimal dotted-quad format",hostaddress);
+       } catch (UnknownHostException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }
+      
+   }
+
+}
+
+Expected output:
+
