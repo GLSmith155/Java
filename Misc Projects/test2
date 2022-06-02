@@ -1,0 +1,69 @@
+import java.net.*;
+import java.util.*;
+public class MyInetAddressExample {
+public static String decimalToBinary(String data)
+{
+
+
+int i=0;
+String bin="";//to concate the reverse
+int binaryNumber[] = new int[500];//array that stores binary number
+int intData=Integer.parseInt(data);//convert string to integer
+while(intData>0){
+binaryNumber[i]=intData%2;
+intData/=2;
+i++;
+}
+for(int j=i-1;j>=0;j--){
+bin+=binaryNumber[j];
+}
+  
+return bin;//return the string binary data
+
+
+}
+public static void main(String [] args)
+{
+
+
+//Get name and ip address of the hostname entered by user
+try{
+//read the host name
+Scanner input =new Scanner(System.in);
+System.out.println("\nEnter a hostname : ");
+String host_name=input.next();
+InetAddress address[] =InetAddress.getAllByName(host_name);
+for(int i=0;i<address.length;i++)
+{
+System.out.println("Host Name : ");
+System.out.println("\nIn Decimal dotted-quad format : ");
+System.out.println("\t"+address[i].getHostName());
+System.out.println("\t"+address[i].getHostAddress());
+  
+//Splitting the ip address
+// splitting by '.'
+  
+String ipterms[]=address[i].getHostAddress().split("\\.");
+String binary_form=" ",binary_dotted_form=" ";
+//to get each value in ipterms
+for(String val:ipterms){
+binary_form+=decimalToBinary(val);
+  
+}
+binary_dotted_form+=decimalToBinary(ipterms[0]);
+binary_dotted_form+="."+decimalToBinary(ipterms[1]);
+binary_dotted_form+="."+decimalToBinary(ipterms[2]);
+binary_dotted_form+="."+decimalToBinary(ipterms[3]);
+System.out.println("\nIn binary format : " +binary_form);
+System.out.println("\nIn binary dotted-quad format : " +binary_dotted_form);
+}
+  
+}catch(UnknownHostException e){
+System.out.println("Unable to determine this host's address");
+}
+
+
+}
+
+
+}
