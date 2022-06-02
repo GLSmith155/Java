@@ -46,3 +46,42 @@ public class MyInetAddressExample {
 
 Expected output:
 
+
+// MODIFIED
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class InetAddressExample2 {
+
+   public static void main(String[] args) {
+       // TODO Auto-generated method stub
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter a hostname:");
+       String hostname=sc.next();
+	   String binaryformat="";
+       String hexquadformat="";
+	   
+       try {
+           InetAddress address=InetAddress.getByName(hostname);
+		   System.out.println("Hostname:");
+		   System.out.println(" \t" + address.getHostName());
+		   System.out.println(" \t" + address.getHostAddress());
+           String hostaddress=address.getHostAddress();
+           String [] hostaddr=hostaddress.split("\\.");
+   
+           for(int i=0;i<hostaddr.length; i++){
+               binaryformat+=Integer.toBinaryString(Integer.valueOf(hostaddr[i]));
+               hexquadformat+=Integer.toHexString(Integer.valueOf(hostaddr[i]))+".";
+
+           }
+           System.out.printf("%-25s: %s\n","binary format ",binaryformat);
+           System.out.printf("%-25s: %s\n","hexadecimal dotted-quad format ",hexquadformat.substring(0, hexquadformat.length()-1));
+           System.out.printf("%-25s: %s\n","decimal dotted-quad format ",hostaddress);
+       } catch (UnknownHostException e) {
+		   System.out.println("Unable to determine this host's address");
+         }
+   }
+}
+
