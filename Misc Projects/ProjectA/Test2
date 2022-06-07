@@ -1,0 +1,93 @@
+myFirstUDPServer.java
+
+
+import java.io.*;
+import java.net.*;
+public class myFirstUDPServer
+{
+   public static void main(String args[])
+   {
+       try
+       {
+           //Create the socket for server side
+           DatagramSocket sock=new DatagramSocket(Integer.parseInt(args[0]));
+           while(true){
+               //for receiving from client
+               byte[] buf=new byte[10000];
+                  
+               //Packet to receive the data from client
+               DatagramPacket packet = new DatagramPacket(buf,buf.length);
+               sock.receive(packet);
+               //convert the message to string so it can be processed
+               String str=new String(packet.getData(),0,packet.getLength());
+               System.out.println("From Client "+str);
+               InetAddress clientAddress=packet.getAddress();
+               int clientPort = packet.getPort();
+
+               //for Sending to client      
+               //capitalize the message
+               str=str.toUpperCase();
+               //convert the message to bytes
+               buf=str.getBytes();
+               //Add the information to packet and send reply back to client
+               packet=new DatagramPacket(buf,0,buf.length,clientAddress,clientPort);
+               sock.send(packet);
+           }
+       }
+       catch(IOException ie)
+       {
+           System.out.println("An Error Occured "+ie);
+       }
+      
+   }
+}
+
+myFirstUDPClient.java
+
+import java.io.*;
+import java.net.*;
+import java.util.Date;
+public class myFirstUDPClient
+{
+   public static void main(String args[])
+   {
+       try
+       {
+           //Maximum size of the message can be 10000 bytes
+           byte[] buf=new byte[10000];
+          
+           //Start the datagram socket to send the packet on port number 666
+           DatagramSocket sock=new DatagramSocket(666);
+           while(true){
+               //for sending to server
+                  
+               //Accept the message from user
+               System.out.print("Enter Data To be Sent To Server ");
+               String str=new BufferedReader(new InputStreamReader(System.in)).readLine();
+               buf=str.getBytes();
+               InetAddress hostAddress = InetAddress.getByName(args[0]);
+               //Add the converted message in bytes to the packet
+               DatagramPacket pack=new DatagramPacket(buf,0,buf.length,hostAddress,Integer.parseInt(args[1]));
+               Date now = new Date();
+               //Save the current time to calculate round trip time
+               long msSend = now.getTime();
+               sock.send(pack);
+          
+               //for receiving from server
+               //New packet which will recieve the response
+               pack=new DatagramPacket(buf,buf.length);
+               sock.receive(pack);
+               //Get the time again so the round trip time can be calculated
+               now = new Date();
+               long msReceived = now.getTime();
+               str=new String(pack.getData(),0,pack.getLength());
+               System.out.println("From Server "+str);
+               System.out.println("Total Time to Response "+(msReceived-msSend)+" ms");
+           }
+       }
+       catch(IOException ie)
+       {
+           System.out.println("An Error Occured "+ie);
+       }
+   }
+}
