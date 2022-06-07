@@ -3,7 +3,7 @@ Overview:
 -------------
 
 
-
+Note: In a windows terminal, I had to add the .sh behind the command. Not sure if we have to in the Tux machine.
 
 
 TCP Application
