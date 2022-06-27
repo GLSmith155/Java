@@ -1,6 +1,6 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        
+       // https://leetcode.com/problems/contains-duplicate/submissions/
         HashMap<Integer, Integer> nums_dict = new HashMap<Integer, Integer>();
         
         int currentKey;
