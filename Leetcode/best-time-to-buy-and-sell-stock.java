@@ -1,4 +1,6 @@
 // Faster version than my first attempt below this one. Same number of for-loops, but the operations can be done with less if statements.
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 class Solution {
     public int maxProfit(int[] prices) {
         
@@ -28,7 +30,6 @@ class Solution {
 
 
 // Naive single for-loop solution. 
-// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/
 
 class Solution {
     public int maxProfit(int[] prices) {
