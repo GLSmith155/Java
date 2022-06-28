@@ -1,3 +1,32 @@
+// Faster version than my first attempt below. Same number of for-loops, but the operations can be done with less if statements.
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        int maxValue = Integer.MAX_VALUE;
+        int finalValue = 0;
+        int maxRange = 0;
+        
+        for(int i = 0; i < prices.length; i++) {
+            
+            if(prices[i] < maxValue) {
+                maxValue = prices[i];
+            }
+            
+            maxRange = prices[i] - maxValue;
+            
+            // The finalValue will be zero unless maxRange is larger than 0.
+            if(finalValue < maxRange) {
+                finalValue = maxRange;
+            }
+        }
+        
+        return finalValue;
+    }
+}
+
+
+
+
 // Naive single for-loop solution. 
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/
 
