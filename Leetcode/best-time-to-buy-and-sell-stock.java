@@ -1,4 +1,4 @@
-// Naive single for-loop solution. Faster than 12% of submissions.
+// Naive single for-loop solution. 
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/
 
 class Solution {
