@@ -1,4 +1,4 @@
-// Faster version than my first attempt below. Same number of for-loops, but the operations can be done with less if statements.
+// Faster version than my first attempt below this one. Same number of for-loops, but the operations can be done with less if statements.
 class Solution {
     public int maxProfit(int[] prices) {
         
