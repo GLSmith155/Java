@@ -1,0 +1,109 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "work": "EXPERIENCE",
+    "skills": "",
+    "projects": "",
+    "awards": "",
+    "education": "EDUCATION"
+  },
+  "basics": {
+    "name": "George L. Smith",
+    "phone": "706-581-5728",
+    "website": "linkedin.com/in/gsmithdev/",
+    "email": "gsmithdev.com",
+    "location": {
+      "address": "georgelsmith79@gmail.com"
+    }
+  },
+  "education": [
+    {
+      "institution": "Auburn University",
+      "location": "Auburn, AL",
+      "area": "Computer Science",
+      "studyType": "BS",
+      "endDate": "05/2022",
+      "gpa": "4.0",
+      "startDate": "08/2020"
+    },
+    {
+      "institution": "Dalton State College",
+      "location": "Dalton, GA",
+      "studyType": "BS",
+      "area": "Mathematics",
+      "gpa": "3.6",
+      "endDate": "05/2020",
+      "startDate": "08/2018"
+    }
+  ],
+  "work": [
+    {
+      "company": "developerDB",
+      "position": "Software Engineer Intern",
+      "website": "",
+      "highlights": [
+        "Designed, built, and deployed software that improved the data processing and predictive analytics of the 61M and growing profiles in the developerDB database.",
+        "Kickstarted a project to implement image recognition in order to cut down on duplicate tech profiles in the recruitment database.",
+        "Implemented backend features that fetch and organize data sets from Neo4j and MongoDB."
+      ],
+      "location": "Remote",
+      "startDate": "05/2021",
+      "endDate": "Present"
+    },
+    {
+      "highlights": [
+        "Implemented the designed data model for the migration of the existing database to CassandraDB.",
+        "Developed backend routes with Django REST Framework for the user portal section of the website.",
+        "Rigorously tested code and fixed known bugs ensuring high reliability and scalability."
+      ],
+      "company": "TREC LLC REAL ESTATE",
+      "position": "Software Development Intern",
+      "startDate": "01/2021",
+      "endDate": "06/2021",
+      "location": "Remote"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "",
+      "keywords": [
+        "Java, Kotlin,  C, C++, Python, JavaScript, C#, Go"
+      ]
+    },
+    {
+      "keywords": [
+        "Spring, Django, Flask, Node.js, React.js, Next.js, MongoDB, CassandraDB, Neo4j, postgreSQL"
+      ],
+      "name": "Full Stack"
+    },
+    {
+      "keywords": [
+        "Unix/Linux, Git, Android SDK"
+      ],
+      "name": "Other"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Explore Health Today",
+      "description": "Explore Health Today is a fullstack health oriented web app that allows users to track their health goals, additionally the site scrapes useful information and implements nutritional APIs in the name of making science and nutritional information more accessible for all.",
+      "url": "https://explorehealthtoday.com/",
+      "keywords": [
+        "Java Spring Framework, PostgreSQL, Python, Selenium, React.js"
+      ]
+    }
+  ],
+  "awards": [
+    {}
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
